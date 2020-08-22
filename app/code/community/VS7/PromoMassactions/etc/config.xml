@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VS7_PromoMassactions>
+            <version>0.1.0</version>
+        </VS7_PromoMassactions>
+    </modules>
+    <global>
+        <helpers>
+            <vs7_promomassactions>
+                <class>VS7_PromoMassactions_Helper</class>
+            </vs7_promomassactions>
+        </helpers>
+    <models>
+        <vs7_promomassactions>
+            <class>VS7_PromoMassactions_Model</class>
+        </vs7_promomassactions>
+        </models>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <VS7_PromoMassactions after="Mage_Adminhtml">VS7_PromoMassactions_Adminhtml</VS7_PromoMassactions>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <vs7_promomassactions_add_massactions>
+                        <type>singleton</type>
+                        <class>vs7_promomassactions/adminhtml_observer</class>
+                        <method>addMassactions</method>
+                    </vs7_promomassactions_add_massactions>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
+    </adminhtml>
+</config>
